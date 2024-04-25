@@ -11,5 +11,16 @@ clean-targets:
   - dbt_packages
 
 models:
-  # The config below applies only when running this package directly as a project, not when installed as a package in another project.
-  +on_schema_change: "append_new_columns"
+  dbt_snowflake_monitoring:
+    # The config below applies only when running this package directly as a project, not when installed as a package in another project.
+    +on_schema_change: "append_new_columns"
+    +query_tags: dbt_special
+
+dispatch:
+  - macro_namespace: dbt
+    search_order:
+      - dbt_snowflake_monitoring
+      - dbt
+query-comment:
+  comment: '{{ dbt_snowflake_monitoring.get_query_comment(node) }}'
+  append: true # Snowflake removes prefixed comments.

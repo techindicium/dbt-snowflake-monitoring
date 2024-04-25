@@ -1,0 +1,45 @@
+models:
+  - name: fact_table
+    description: "Tabela de fatos de custos que armazena métricas de uso de créditos em um warehouse."
+    columns:
+      - name: metrics_sk
+        description: Chave substituta da tabela de fatos. Identificador único gerado artificialmente para fins de data warehouse.
+        tests:
+          - not_null
+          - unique
+      - name: warehouse_id
+        description: ID do warehouse.
+        tests:
+          - not_null
+      - name: usuario_sk
+        description: Chave substituta do usuário.
+        tests:
+          - not_null
+      - name: warehouse_sk
+        description: Chave substituta do warehouse.
+        tests:
+          - not_null
+      - name: database_sk
+        description: Chave substituta do banco de dados.
+        tests:
+          - not_null
+      - name: schema_sk
+        description: Chave substituta do esquema.
+        tests:
+          - not_null
+      - name: metric_date
+        description: Data da métrica.
+        tests:
+          - not_null
+      - name: credits_used
+        description: Créditos utilizados.
+        tests:
+          - not_null
+      - name: credits_used_compute
+        description: Créditos utilizados para computação.
+        tests:
+          - not_null
+      - name: credits_used_cloud_services
+        description: Créditos utilizados para serviços na nuvem.
+        tests:
+          - not_null

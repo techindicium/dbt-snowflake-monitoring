@@ -1,0 +1,9 @@
+models:
+  - name: dim_usuarios_sk
+    description: "Tabela de dimensão de usuários que fornece informações detalhadas sobre cada usuário."
+    columns:
+      - name: user_sk
+        description: Chave substituta do usuário. Este é um identificador único gerado artificialmente usado para fins de data warehouse.
+        tests:
+          - not_null
+          - unique

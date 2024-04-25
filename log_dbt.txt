@@ -1,0 +1,1502 @@
+[0m18:30:59  Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce52f5a20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce3fa5720>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce3fa56c0>]}
+[0m18:30:59  Running with dbt=1.5.11
+[0m18:30:59  running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/gabriel_nogueira/.dbt', 'version_check': 'True', 'debug': 'True', 'log_path': '/home/gabriel_nogueira/dbt_snowflake_monitoring/dbt-snowflake-monitoring/logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'send_anonymous_usage_stats': 'True'}
+[0m18:30:59  Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0cdc710c-6ce7-4a35-9cc4-24e61db3ad1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce766fc70>]}
+[0m18:31:00  Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0cdc710c-6ce7-4a35-9cc4-24e61db3ad1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce2f02d40>]}
+[0m18:31:00  Registered adapter: snowflake=1.5.1
+[0m18:31:00  checksum: 007b492a958e08141e13011e4198bea48e7f359a98b57e51b7a963fca8fc83af, vars: {}, profile: , target: , version: 1.5.11
+[0m18:31:00  Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m18:31:00  Partial parsing enabled, no changes found, skipping parsing
+[0m18:31:00  Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '0cdc710c-6ce7-4a35-9cc4-24e61db3ad1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce2a63190>]}
+[0m18:31:00  Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '0cdc710c-6ce7-4a35-9cc4-24e61db3ad1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce2bf6110>]}
+[0m18:31:00  Found 26 models, 2 tests, 0 snapshots, 0 analyses, 451 macros, 0 operations, 0 seed files, 12 sources, 0 exposures, 0 metrics, 0 groups
+[0m18:31:00  Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0cdc710c-6ce7-4a35-9cc4-24e61db3ad1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce2bf60b0>]}
+[0m18:31:00  
+[0m18:31:00  Acquiring new snowflake connection 'master'
+[0m18:31:00  Acquiring new snowflake connection 'list_SANDBOX'
+[0m18:31:00  Using snowflake connection "list_SANDBOX"
+[0m18:31:00  On list_SANDBOX: show terse schemas in database SANDBOX
+    limit 10000
+/* {"app": "dbt", "dbt_snowflake_query_tags_version": "2.3.2", "dbt_version": "1.5.11", "project_name": "dbt_snowflake_monitoring", "target_name": "dev", "target_database": "SANDBOX", "target_schema": "DEV_GABRIEL_NOGUEIRA", "invocation_id": "0cdc710c-6ce7-4a35-9cc4-24e61db3ad1d"} */
+[0m18:31:00  Opening a new connection, currently in state init
+[0m18:31:01  SQL status: SUCCESS 2 in 1.0 seconds
+[0m18:31:01  On list_SANDBOX: Close
+[0m18:31:01  Re-using an available connection from the pool (formerly list_SANDBOX, now list_SANDBOX_DEV_GABRIEL_NOGUEIRA)
+[0m18:31:01  Using snowflake connection "list_SANDBOX_DEV_GABRIEL_NOGUEIRA"
+[0m18:31:01  On list_SANDBOX_DEV_GABRIEL_NOGUEIRA: show terse objects in SANDBOX.DEV_GABRIEL_NOGUEIRA
+/* {"app": "dbt", "dbt_snowflake_query_tags_version": "2.3.2", "dbt_version": "1.5.11", "project_name": "dbt_snowflake_monitoring", "target_name": "dev", "target_database": "SANDBOX", "target_schema": "DEV_GABRIEL_NOGUEIRA", "invocation_id": "0cdc710c-6ce7-4a35-9cc4-24e61db3ad1d"} */
+[0m18:31:01  Opening a new connection, currently in state closed
+[0m18:31:02  SQL status: SUCCESS 1 in 1.0 seconds
+[0m18:31:02  On list_SANDBOX_DEV_GABRIEL_NOGUEIRA: Close
+[0m18:31:02  Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0cdc710c-6ce7-4a35-9cc4-24e61db3ad1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce2a43d00>]}
+[0m18:31:02  Concurrency: 2 threads (target='dev')
+[0m18:31:02  
+[0m18:31:02  Began running node model.dbt_snowflake_monitoring.stg_access_history
+[0m18:31:02  1 of 1 START sql incremental model DEV_GABRIEL_NOGUEIRA.stg_access_history ..... [RUN]
+[0m18:31:02  Re-using an available connection from the pool (formerly list_SANDBOX_DEV_GABRIEL_NOGUEIRA, now model.dbt_snowflake_monitoring.stg_access_history)
+[0m18:31:02  Began compiling node model.dbt_snowflake_monitoring.stg_access_history
+[0m18:31:02  Writing injected SQL for node "model.dbt_snowflake_monitoring.stg_access_history"
+[0m18:31:02  Timing info for model.dbt_snowflake_monitoring.stg_access_history (compile): 15:31:02.574041 => 15:31:02.585491
+[0m18:31:02  Began executing node model.dbt_snowflake_monitoring.stg_access_history
+[0m18:31:02  Timing info for model.dbt_snowflake_monitoring.stg_access_history (execute): 15:31:02.586513 => 15:31:02.610783
+[0m18:31:02  [31mUnhandled error while executing [0m
+maximum recursion depth exceeded
+[0m18:31:02  Traceback (most recent call last):
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/task/base.py", line 388, in safe_run
+    result = self.compile_and_execute(manifest, ctx)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/task/base.py", line 337, in compile_and_execute
+    result = self.run(ctx.node, manifest)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/task/base.py", line 436, in run
+    return self.execute(compiled_node, manifest)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/task/run.py", line 291, in execute
+    result = MacroGenerator(
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 51, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 257, in call_macro
+    return macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 763, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 777, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 18, in macro
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 298, in call
+    return __obj(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 330, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 253, in call_macro
+    macro = self.get_macro()
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/dbt/clients/jinja.py", line 235, in get_macro
+    module = template.make_module(vars=self.context, shared=False)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/environment.py", line 1404, in make_module
+    ctx = self.new_context(vars, shared, locals)
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/environment.py", line 1388, in new_context
+    return new_context(
+  File "/home/gabriel_nogueira/dbt_snowflake_monitoring/venv/lib/python3.10/site-packages/jinja2/runtime.py", line 106, in new_context
+    parent = dict(globals or (), **vars)
+  File "/usr/lib/python3.10/_collections_abc.py", line 838, in keys
+    return KeysView(self)
+RecursionError: maximum recursion depth exceeded
+
+[0m18:31:02  Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0cdc710c-6ce7-4a35-9cc4-24e61db3ad1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce29252d0>]}
+[0m18:31:02  1 of 1 ERROR creating sql incremental model DEV_GABRIEL_NOGUEIRA.stg_access_history  [[31mERROR[0m in 0.05s]
+[0m18:31:02  Finished running node model.dbt_snowflake_monitoring.stg_access_history
+[0m18:31:02  Connection 'master' was properly closed.
+[0m18:31:02  Connection 'model.dbt_snowflake_monitoring.stg_access_history' was properly closed.
+[0m18:31:02  
+[0m18:31:02  Finished running 1 incremental model in 0 hours 0 minutes and 2.53 seconds (2.53s).
+[0m18:31:02  Command end result
+[0m18:31:02  
+[0m18:31:02  [31mCompleted with 1 error and 0 warnings:[0m
+[0m18:31:02  
+[0m18:31:02  [33mmaximum recursion depth exceeded[0m
+[0m18:31:02  
+[0m18:31:02  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[0m18:31:02  Command `dbt run` failed at 15:31:02.645203 after 2.88 seconds
+[0m18:31:02  Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce52f5a20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce2f02d40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fdce3fa5a20>]}
+[0m18:31:02  Flushing usage events

@@ -1,0 +1,90 @@
+version: 2
+models:
+  - name: fact_table
+    description: Tabela de fatos contendo métricas de consultas.
+    columns:
+      - name: metrics_sk
+        description: Chave substituta para a tabela de fatos.
+        tests:
+          - unique
+          - not_null
+
+      - name: warehouse_id
+        description: Identificador do armazém.
+        tests:
+          - not_null
+
+      # Adicione outras colunas conforme necessário, dependendo da estrutura da tabela de fatos
+
+  - name: dim_query_history
+    description: Tabela de dimensão contendo histórico de consultas.
+    columns:
+      # Defina as colunas da tabela de dimensão dim_query_history conforme necessário, com base na estrutura da tabela stg_query_history
+
+  - name: dim_metering_history
+    description: Tabela de dimensão contendo histórico de medições.
+    columns:
+      # Defina as colunas da tabela de dimensão dim_metering_history conforme necessário, com base na estrutura da tabela stg_metering_history
+
+  - name: dim_daily_rates
+    description: Tabela de dimensão contendo taxas diárias.
+    columns:
+      # Defina as colunas da tabela de dimensão dim_daily_rates conforme necessário, com base na estrutura da tabela daily_rates
+
+  - name: cloud_services_cost_per_query
+    description: Tabela de custo de serviços em nuvem por consulta.
+    columns:
+      # Defina as colunas da tabela cloud_services_cost_per_query conforme necessário, com base nos cálculos realizados
+
+  - name: compute_cost_per_query
+    description: Tabela de custo de computação por consulta.
+    columns:
+      # Defina as colunas da tabela compute_cost_per_query conforme necessário, com base nos cálculos realizados
+
+  - name: final_query_results
+    description: Resultados finais da consulta.
+    columns:
+      - name: query_id
+        description: ID da consulta.
+        tests:
+          - not_null
+          - unique
+
+      - name: start_time
+        description: Horário de início da consulta.
+        tests:
+          - not_null
+
+      - name: end_time
+        description: Horário de término da consulta.
+        tests:
+          - not_null
+
+      - name: execution_start_time
+        description: Horário de início da execução da consulta.
+        tests:
+          - not_null
+
+      - name: compute_cost
+        description: Custo de computação da consulta.
+        tests:
+          - not_null
+
+      - name: compute_credits
+        description: Créditos de computação utilizados pela consulta.
+
+      - name: query_acceleration_cost
+        description: Custo de aceleração de consulta.
+
+      - name: query_acceleration_credits
+        description: Créditos de aceleração de consulta.
+
+      - name: credits_used_cloud_services
+        description: Créditos utilizados para serviços em nuvem pela consulta.
+
+      - name: ran_on_warehouse
+        description: Indica se a consulta foi executada no armazém.
+
+      - name: cloud_services_cost
+        description: Custo de serviços em nuvem da consulta.
+

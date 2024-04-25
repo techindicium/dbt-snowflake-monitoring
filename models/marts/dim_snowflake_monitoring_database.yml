@@ -1,0 +1,17 @@
+models:
+  - name: dim_database_sk
+    description: "Tabela de dimensão de banco de dados que fornece informações detalhadas sobre cada banco de dados."
+    columns:
+      - name: database_sk
+        description: Chave substituta do banco de dados. Este é um identificador único gerado artificialmente usado para fins de data warehouse.
+        tests:
+          - not_null
+          - unique
+      - name: database_id
+        description: ID do banco de dados.
+        tests:
+          - not_null
+      - name: database_name
+        description: Nome do banco de dados.
+        tests:
+          - not_null

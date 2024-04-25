@@ -145,7 +145,7 @@ all_queries as (
         credits_used_cloud_services,
         ran_on_warehouse
     from cost_per_query
-
+    
     union all
 
     select

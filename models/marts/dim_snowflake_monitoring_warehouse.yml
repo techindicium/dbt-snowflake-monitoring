@@ -1,0 +1,25 @@
+models:
+  - name: dim_warehouse_sk
+    description: "Tabela de dimensão de warehouse que fornece informações detalhadas sobre cada warehouse."
+    columns:
+      - name: warehouse_sk
+        description: Chave substituta do warehouse. Este é um identificador único gerado artificialmente usado para fins de data warehouse.
+        tests:
+          - not_null
+          - unique
+      - name: warehouse_id
+        description: ID do warehouse.
+        tests:
+          - not_null
+      - name: warehouse_name
+        description: Nome do warehouse.
+        tests:
+          - not_null
+      - name: warehouse_size
+        description: Tamanho do warehouse.
+        tests:
+          - not_null
+      - name: warehouse_type
+        description: Tipo do warehouse.
+        tests:
+          - not_null

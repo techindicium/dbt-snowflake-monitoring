@@ -1,0 +1,17 @@
+models:
+  - name: dim_schema_sk
+    description: "Tabela de dimensão de esquema que fornece informações detalhadas sobre cada esquema."
+    columns:
+      - name: schema_sk
+        description: Chave substituta do esquema. Este é um identificador único gerado artificialmente usado para fins de data warehouse.
+        tests:
+          - not_null
+          - unique
+      - name: schema_id
+        description: ID do esquema.
+        tests:
+          - not_null
+      - name: schema_name
+        description: Nome do esquema.
+        tests:
+          - not_null
