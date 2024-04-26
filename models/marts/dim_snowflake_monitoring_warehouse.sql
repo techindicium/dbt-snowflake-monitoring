@@ -1,9 +1,4 @@
 WITH 
-    warehouse AS (
-        SELECT *
-        FROM {{ ref('stg_query_history') }}
-    ),
-
     dim_warehouse AS (
         SELECT
             warehouse_id,

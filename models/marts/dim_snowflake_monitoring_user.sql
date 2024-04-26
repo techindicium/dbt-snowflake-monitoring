@@ -1,10 +1,5 @@
 WITH 
-    usuario AS (
-        SELECT *
-        FROM {{ ref('stg_query_history') }}
-    )
-
-    , dim_usuarios AS (
+   dim_usuarios AS (
         SELECT
             user_name
         FROM {{ ref('stg_query_history') }}
