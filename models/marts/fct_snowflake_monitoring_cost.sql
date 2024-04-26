@@ -24,10 +24,10 @@ fact_table as (
 -- Cálculo de custo de serviços em nuvem por consulta
 cloud_services_cost_per_query as (
     select
-        q.query_id,
-        sum(mh.credits_used_cloud_services) as total_credits_used_cloud_services,
-        coalesce(dr.effective_rate, cr.effective_rate) as rate,
-        sum(mh.credits_used_cloud_services) * coalesce(dr.effective_rate, cr.effective_rate) as cloud_services_cost
+        q.query_id
+        ,sum(mh.credits_used_cloud_services) as total_credits_used_cloud_services
+        ,coalesce(dr.effective_rate, cr.effective_rate) as rate
+        ,sum(mh.credits_used_cloud_services) * coalesce(dr.effective_rate, cr.effective_rate) as cloud_services_cost
     from
         dim_query_history q
     join
@@ -62,18 +62,18 @@ compute_cost_per_query as (
 -- Consulta final
 final_query as (
     select
-        q.query_id,
-        q.start_time,
-        q.end_time,
-        q.execution_start_time,
-        q.compute_cost,
-        q.compute_credits,
-        q.query_acceleration_cost,
-        q.query_acceleration_credits,
-        q.credits_used_cloud_services,
-        q.ran_on_warehouse,
-        coalesce(cloud.cloud_services_cost, 0) as cloud_services_cost,
-        coalesce(compute.compute_cost, 0) as compute_cost
+        q.query_id
+        ,q.start_time
+        ,q.end_time
+        ,q.execution_start_time
+        ,q.compute_cost
+        ,q.compute_credits
+        ,q.query_acceleration_cost
+        ,q.query_acceleration_credits
+        ,q.credits_used_cloud_services
+        ,q.ran_on_warehouse
+        ,coalesce(cloud.cloud_services_cost, 0) as cloud_services_cost
+        ,coalesce(compute.compute_cost, 0) as compute_cost
     from
         dim_query_history q
     left join
