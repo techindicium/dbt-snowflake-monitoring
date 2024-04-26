@@ -20,5 +20,6 @@ WITH
         FROM dim_warehouse
     )
 
+    
 SELECT *
 FROM dim_warehouse_sk
