@@ -1,5 +1,5 @@
 models:
-  - name: fact_table
+  - name: fct_snowflake_monitoring_credits
     description: "Tabela de fatos de custos que armazena métricas de uso de créditos em um warehouse."
     columns:
       - name: metrics_sk
