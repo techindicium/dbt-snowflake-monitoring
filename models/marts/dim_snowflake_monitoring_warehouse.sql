@@ -1,7 +1,7 @@
 WITH 
     warehouse AS (
         SELECT *
-        FROM stg_query_history
+        FROM {{ ref('stg_query_history') }}
     ),
 
     dim_warehouse AS (
@@ -20,6 +20,6 @@ WITH
         FROM dim_warehouse
     )
 
-    
+
 SELECT *
 FROM dim_warehouse_sk

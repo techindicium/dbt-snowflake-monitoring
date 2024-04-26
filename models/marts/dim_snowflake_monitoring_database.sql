@@ -1,14 +1,14 @@
 WITH 
     database AS (
         SELECT *
-        FROM stg_query_history
+        FROM {{ ref('stg_query_history') }}
     ),
 
     dim_database AS (
         SELECT
             database_id,
             database_name
-        FROM database
+        FROM {{ ref('stg_query_history') }}
     ),
 
     dim_database_sk AS (

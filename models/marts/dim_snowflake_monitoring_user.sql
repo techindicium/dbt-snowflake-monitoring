@@ -1,7 +1,7 @@
 WITH 
     usuario AS (
         SELECT *
-        FROM stg_query_history
+        FROM {{ ref('stg_query_history') }}
     ),
 
     dim_usuarios AS (
