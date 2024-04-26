@@ -12,6 +12,7 @@ models:
         tests:
           - not_null
           - unique
+      
       - name: dbt_node_name
         description: Nome do nó do dbt.
         tests:
