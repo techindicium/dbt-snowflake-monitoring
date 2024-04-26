@@ -10,14 +10,14 @@ WITH
             warehouse_name,
             warehouse_size,
             warehouse_type
-        FROM warehouse
+        FROM {{ ref('stg_query_history') }}
     ),
 
     dim_warehouse_sk AS (
         SELECT
             dbt_utils.generate_surrogate_key([warehouse_id]) AS warehouse_sk,
             *
-        FROM dim_warehouse
+        FROM {{ ref('stg_query_history') }}
     )
 
 

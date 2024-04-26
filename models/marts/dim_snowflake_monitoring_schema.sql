@@ -2,16 +2,16 @@ WITH
     schema AS (
         SELECT *
         FROM {{ ref('stg_query_history') }}
-    ),
+    )
 
-    dim_schema AS (
+    , dim_schema AS (
         SELECT
             schema_id,
             schema_name
         FROM {{ ref('stg_query_history') }}
-    ),
+    )
 
-    dim_schema_sk AS (
+    , dim_schema_sk AS (
         SELECT
             dbt_utils.generate_surrogate_key([schema_id]) AS schema_sk,
             *

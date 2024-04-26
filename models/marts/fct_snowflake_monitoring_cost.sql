@@ -3,26 +3,26 @@ with
     dim_query_history as (
         select *
         from {{ ref('stg_query_history') }}
-    ),
-    dim_metering_history as (
+    )
+    
+    , dim_metering_history as (
         select *
         from {{ ref('stg_metering_history') }} 
-    ),
-    dim_daily_rates as (
+    )
+    
+    , dim_daily_rates as (
         select *
         from {{ ref('daily_rates') }}
-    ),
-
--- Tabela de fatos
-fact_table as (
+    )
+    
+    , fact_table as (
     select 
         {{ dbt_utils.generate_surrogate_key(['fact_table.warehouse_id']) }} AS metrics_sk,
         *
     from {{ ref('stg_warehouse_metering_history') }}
-),
+)
 
--- Cálculo de custo de serviços em nuvem por consulta
-cloud_services_cost_per_query as (
+, cloud_services_cost_per_query as (
     select
         q.query_id
         ,sum(mh.credits_used_cloud_services) as total_credits_used_cloud_services
@@ -38,10 +38,9 @@ cloud_services_cost_per_query as (
         (select effective_rate from dim_daily_rates where is_latest_rate = true and service_type = 'COMPUTE' and usage_type = 'cloud services') cr
     group by
         q.query_id, cr.effective_rate, dr.effective_rate
-),
+)
 
--- Cálculo de custo de computação por consulta
-compute_cost_per_query as (
+, compute_cost_per_query as (
     select
         q.query_id,
         sum(mh.credits_used_compute) as total_credits_used_compute,
@@ -57,10 +56,10 @@ compute_cost_per_query as (
         (select effective_rate from dim_daily_rates where is_latest_rate = true and service_type = 'COMPUTE' and usage_type = 'compute') cr
     group by
         q.query_id, cr.effective_rate, dr.effective_rate
-),
+)
 
 -- Consulta final
-final_query as (
+, final_query as (
     select
         q.query_id
         ,q.start_time
