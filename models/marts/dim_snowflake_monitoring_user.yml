@@ -1,5 +1,5 @@
 models:
-  - name: dim_usuarios_sk
+  - name: dim_snowflake_monitoring_user
     description: "Tabela de dimensão de usuários que fornece informações detalhadas sobre cada usuário."
     columns:
       - name: user_sk

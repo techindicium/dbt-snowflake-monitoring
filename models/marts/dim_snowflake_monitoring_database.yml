@@ -1,5 +1,5 @@
 models:
-  - name: dim_database_sk
+  - name: dim_snowflake_monitoring_database
     description: "Tabela de dimensão de banco de dados que fornece informações detalhadas sobre cada banco de dados."
     columns:
       - name: database_sk

@@ -1,0 +1,18 @@
+models:
+  - name: dim_snowflake_monitoring_models
+    description: "Tabela de dimensão da tabela que fornece informações detalhadas sobre cada tabela."
+    columns:
+      - name: models_sk
+        description: Chave substituta da tabela. Este é um identificador único gerado artificialmente usado para fins de data warehouse.
+        tests:
+          - not_null
+          - unique
+      - name: dbt_node_id
+        description: ID do nó do dbt.
+        tests:
+          - not_null
+          - unique
+      - name: dbt_node_name
+        description: Nome do nó do dbt.
+        tests:
+          - not_null

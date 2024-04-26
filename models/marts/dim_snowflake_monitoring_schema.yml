@@ -1,5 +1,5 @@
 models:
-  - name: dim_schema_sk
+  - name: dim_snowflake_monitoring_schema
     description: "Tabela de dimensão de esquema que fornece informações detalhadas sobre cada esquema."
     columns:
       - name: schema_sk

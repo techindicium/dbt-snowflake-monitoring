@@ -1,5 +1,5 @@
 models:
-  - name: dim_warehouse_sk
+  - name: dim_snowflake_monitoring_warehouse
     description: "Tabela de dimensão de warehouse que fornece informações detalhadas sobre cada warehouse."
     columns:
       - name: warehouse_sk

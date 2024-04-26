@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: dim_calendar
+  - name: dim_snowflake_monitoring_date
     description: "Esta tabela contém informações sobre as datas em que ocorrem eventos para todas as fontes de dados."
     columns:
       - name: metric_date
