@@ -4,3 +4,4 @@ logs/
 logfile
 .DS_Store
 env.sh
+venv/
