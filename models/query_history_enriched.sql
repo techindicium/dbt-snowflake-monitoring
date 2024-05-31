@@ -53,6 +53,8 @@ select
     cost_per_query.execution_start_time,
 
     -- Grab all columns from query_history (except the query time columns which we rename below)
+    -- adicionei aqui o dbt_node_id
+    query_history.dbt_metadata['node_id']::string as dbt_node_id,
     query_history.query_text,
     query_history.database_id,
     query_history.database_name,

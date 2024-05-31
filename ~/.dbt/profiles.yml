@@ -1,0 +1,13 @@
+dbt_snowflake_monitoring:
+  outputs:
+    dev:
+      account: hcb48722-indiciumtech_enterprise
+      database: SANDBOX
+      password: 'Sislog18##**'
+      role: SANDBOX_GABRIEL_NOGUEIRA
+      schema: DEV_GABRIEL_NOGUEIRA
+      threads: 2
+      type: snowflake
+      user: 'gabriel_nogueira'
+      warehouse: SANDBOX_WAREHOUSE
+  target: dev

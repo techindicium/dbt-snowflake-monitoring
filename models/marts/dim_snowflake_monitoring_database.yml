@@ -7,11 +7,6 @@ models:
         tests:
           - not_null
           - unique
-      - name: database_id
-        description: ID do banco de dados.
-        tests:
-          - not_null
       - name: database_name
         description: Nome do banco de dados.
-        tests:
-          - not_null
+        

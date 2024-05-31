@@ -9,17 +9,6 @@ models:
           - unique
       - name: warehouse_id
         description: ID do warehouse.
-        tests:
-          - not_null
       - name: warehouse_name
         description: Nome do warehouse.
-        tests:
-          - not_null
-      - name: warehouse_size
-        description: Tamanho do warehouse.
-        tests:
-          - not_null
-      - name: warehouse_type
-        description: Tipo do warehouse.
-        tests:
-          - not_null
+

@@ -23,7 +23,7 @@ dates_base as (
 
 rate_sheet_daily_base as (
     select
-        date,
+        to_timestamp_ntz(date) as date,
         usage_type,
         currency,
         effective_rate,
@@ -34,25 +34,27 @@ rate_sheet_daily_base as (
 ),
 
 stop_thresholds as (
-    select min(date) as start_date
+    select to_timestamp_ntz(min(date)) as start_date
     from rate_sheet_daily_base
 
     union all
-
-    select min(date) as start_date
+    --pela stg remaining_balance_
+    select to_timestamp_ntz(min(date)) as start_date
     from {{ ref('remaining_balance_daily_without_contract_view') }}
 ),
 
 date_range as (
     select
-        max(start_date) as start_date,
-        current_date as end_date
+        to_timestamp_ntz(max(start_date)) as start_date, --adicionei o to_number para resolver a quetão do erro de data para number
+        to_timestamp_ntz(to_char(current_date, 'YYYY-MM-DD')) as end_date
+
     from stop_thresholds
-),
+)
+,
 
 remaining_balance_daily as (
     select
-        date,
+        to_timestamp_ntz(date) as date,
         free_usage_balance + capacity_balance + on_demand_consumption_balance + rollover_balance as remaining_balance,
         remaining_balance < 0 as is_account_in_overage
     from {{ ref('remaining_balance_daily_without_contract_view') }}
@@ -60,7 +62,7 @@ remaining_balance_daily as (
 
 latest_remaining_balance_daily as (
     select
-        date,
+        to_timestamp_ntz(date) as date,
         remaining_balance,
         is_account_in_overage
     from remaining_balance_daily
@@ -76,8 +78,8 @@ rate_sheet_daily as (
 
 rates_date_range_w_usage_types as (
     select
-        date_range.start_date,
-        date_range.end_date,
+        to_timestamp_ntz(date_range.start_date) as start_date,
+        to_timestamp_ntz(date_range.end_date) as end_date,
         usage_types.usage_type
     from date_range
     cross join (select distinct usage_type from rate_sheet_daily) as usage_types
@@ -85,16 +87,17 @@ rates_date_range_w_usage_types as (
 
 base as (
     select
-        db.date,
+        to_timestamp_ntz(db.date) as date,
         dr.usage_type
     from dates_base as db
-    inner join rates_date_range_w_usage_types as dr
-        on db.date between dr.start_date and dr.end_date
-),
+    inner join rates_date_range_w_usage_types as dr --adicionei o to_timestamp no start e no end
+        on db.date between to_timestamp_ntz(dr.start_date) and to_timestamp_ntz(dr.end_date)
+)
+,
 
 rates_w_overage as (
     select
-        base.date,
+        to_timestamp_ntz(base.date) as date,
         base.usage_type,
         coalesce(
             rate_sheet_daily.service_type,
@@ -131,7 +134,7 @@ rates_w_overage as (
 
 rates as (
     select
-        date,
+        to_timestamp_ntz(date) as date,
         usage_type,
         associated_usage_type,
         service_type,
@@ -143,7 +146,7 @@ rates as (
 )
 
 select
-    date,
+    to_timestamp_ntz(date) as date,
     associated_usage_type as usage_type,
     service_type,
     effective_rate,

@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: snowflake_account_usage
-    database: snowflake
-    schema: account_usage
+    database: internal_products
+    schema: raw_account_usage
     tables:
       - name: access_history
       - name: database_storage_usage_history
@@ -16,10 +16,16 @@ sources:
       - name: warehouse_metering_history
 
   - name: snowflake_organization_usage
-    database: snowflake
-    schema: organization_usage
+    database: internal_products
+    schema: RAW_ORGANIZATION_USAGE
+    tables:
+      - name: usage_in_currency_daily
+
+  - name: snowflake_organization
+    database: HCB48722_DAB22217_ORGANIZATION_DATA
+    schema: ORGANIZATION_USAGE
     tables:
       - name: rate_sheet_daily
       - name: remaining_balance_daily
-      - name: usage_in_currency_daily
+  
 

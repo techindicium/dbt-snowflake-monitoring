@@ -1,9 +1,12 @@
 models:
   - name: dim_snowflake_monitoring_user
-    description: "Tabela de dimensão de usuários que fornece informações detalhadas sobre cada usuário."
+    description: "Tabela de dimensão de usuarios que fornece informações detalhadas sobre cada usuario."
     columns:
       - name: user_sk
-        description: Chave substituta do usuário. Este é um identificador único gerado artificialmente usado para fins de data warehouse.
+        description: Chave substituta do usuario. Este é um identificador único gerado artificialmente.
         tests:
           - not_null
           - unique
+      - name: user_name
+        description: Nome do usuário.
+          - not_null

@@ -79,7 +79,7 @@ query_seconds_per_hour as (
 credits_billed_hourly as (
     select
         start_time as hour,
-        entity_id as warehouse_id,
+        warehouse_id,
         sum(iff(service_type = 'WAREHOUSE_METERING', credits_used_compute, 0)) as credits_used_compute,
         sum(iff(service_type = 'WAREHOUSE_METERING', credits_used_cloud_services, 0)) as credits_used_cloud_services,
         sum(iff(service_type = 'QUERY_ACCELERATION', credits_used_compute, 0)) as credits_used_query_acceleration

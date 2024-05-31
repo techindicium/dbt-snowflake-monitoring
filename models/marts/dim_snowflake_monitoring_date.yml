@@ -1,17 +1,16 @@
 version: 2
 
 models:
-
   - name: dim_snowflake_monitoring_date
     description: "Esta tabela contém informações sobre as datas em que ocorrem eventos para todas as fontes de dados."
     columns:
-      - name: metric_date
+      - name: date
         description: "Registro de uma única data."
         tests:
           - not_null
           - unique
 
-      - name: dayofmonth
+      - name: day
         description: "Dia do mês da data métrica."
 
       - name: month
@@ -23,19 +22,19 @@ models:
       - name: quarter
         description: "Trimestre da data métrica."
 
-      - name: dayofyear
+      - name: day_of_year
         description: "Dia do ano da data métrica."
 
-      - name: isoweek
+      - name: iso_week
         description: "Semana ISO da data métrica."
 
-      - name: week
+      - name: week_of_year
         description: "Semana do ano da data métrica."
 
-      - name: dayofweek
+      - name: day_of_week
         description: "Dia da semana da data métrica."
 
-      - name: fullmonth
+      - name: full_month
         description: "Nome completo do mês do ano."
 
       - name: week_year

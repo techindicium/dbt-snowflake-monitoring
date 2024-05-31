@@ -20,5 +20,5 @@ select
         when service_type = 'STORAGE' then 'STORAGE'
         else 'COMPUTE'
     end as service_type
-from {{ source('snowflake_organization_usage', 'rate_sheet_daily') }}
+from {{ source('snowflake_organization', 'rate_sheet_daily') }}
 order by date

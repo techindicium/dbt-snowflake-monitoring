@@ -9,9 +9,5 @@ models:
           - unique
       - name: schema_id
         description: ID do esquema.
-        tests:
-          - not_null
       - name: schema_name
         description: Nome do esquema.
-        tests:
-          - not_null

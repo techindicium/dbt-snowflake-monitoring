@@ -1,32 +1,45 @@
 version: 2
 models:
-  - name: fct_snowflake_monitoring_cost
-    description: Tabela de fatos contendo métricas de consultas.
+  - name: fct_snowflake_monitoring_credits_cost
+    description: "Tabela de fatos de custos que armazena métricas de uso de créditos em um warehouse."
     columns:
       - name: metrics_sk
         description: Chave única gerada pelos IDs da tabela fato
         tests:
           - unique
           - not_null
-          
+
       - name: date_fk
         description: Chave identificadora de data 
-      
-    
+   
+  
+  
       - name: warehouse_fk
         description: Chave substituta do warehouse.
-     
-        
+   
+       
       - name: database_fk
         description: Chave substituta do banco de dados.
-   
-          
+  
+        
       - name: schema_fk
         description: Chave substituta do esquema.
-    
-        
+  
+      
       - name: dbt_node_id
         description: Chave identificadora do modelo
-        
+
+      - name: compute_credits
+        description: Medida referente ao cálculo dos créditos compute
+
+      - name: query_compute
+        description: Medida referente ao cálculo dos créditos query
+
+      - name: compute_cost
+        description: Medida referente ao cálculo dos custos compute
+
+      - name: query_cost
+        description: Medida referente ao cálculo dos custos query
+      
       - name: start_time
         description: Coluna de data
