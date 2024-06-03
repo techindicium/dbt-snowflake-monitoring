@@ -56,6 +56,7 @@ WITH
             filtered_fact_table.query_credits AS query_credits,
             filtered_fact_table.query_cost as query_cost,
             filtered_fact_table.compute_cost as compute_cost,
+            filtered_fact_table.credits_used_cloud_services as credits_used_cloud_services,
             filtered_fact_table.start_time as start_time,
             ROW_NUMBER() OVER (PARTITION BY {{ dbt_utils.generate_surrogate_key(['filtered_fact_table.query_id', 'filtered_fact_table.warehouse_id', 'filtered_fact_table.database_id', 'filtered_fact_table.schema_id', 'filtered_fact_table.session_id', 'filtered_fact_table.user_name', 'filtered_fact_table.start_time']) }} ORDER BY filtered_fact_table.start_time) AS row_num
         FROM filtered_fact_table
@@ -76,6 +77,7 @@ WITH
         query_id,
         compute_credits,
         query_credits,
+        credits_used_cloud_services,
         compute_cost,
         query_cost,
         start_time
