@@ -1,11 +1,11 @@
 select
-    date,
-    organization_name,
-    currency,
-    free_usage_balance,
-    capacity_balance,
-    on_demand_consumption_balance,
-    rollover_balance
+    date
+    , organization_name
+    , currency
+    , free_usage_balance
+    , capacity_balance
+    , on_demand_consumption_balance
+    , rollover_balance
 from {{ ref('stg_remaining_balance_daily') }}
 {#
     From what I can tell, there will only ever be 1 organization_name in remaining_balance_daily.
