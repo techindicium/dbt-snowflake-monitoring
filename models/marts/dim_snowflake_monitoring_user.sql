@@ -10,14 +10,14 @@ WITH dim_user_sk AS (
         ROW_NUMBER() OVER (
             PARTITION BY user_name
             ORDER BY query_id, warehouse_name, user_name
-        ) AS unique_id,
-        user_name
+        ) AS unique_id
+        , user_name
     FROM {{ ref('stg_query_history') }}
     WHERE user_name IS NOT NULL
 )
 
 SELECT
-    MD5(CONCAT(user_sk, CAST(unique_id AS STRING))) AS user_sk,
-    user_name
+    MD5(CONCAT(user_sk, CAST(unique_id AS STRING))) AS user_sk
+    , user_name
 FROM dim_user_sk
 WHERE unique_id = 1  -- Garante uma única linha por usuário

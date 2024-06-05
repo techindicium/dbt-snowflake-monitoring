@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: daily_rates
+  - name: int_daily_rates
     description: >
       A copy of snowflake.organization_usage.rate_sheet_daily for the current Snowflake account, with missing dates imputed.
       This model accounts for the fact that multiple rates will appear on a given day when the account is in overage. This

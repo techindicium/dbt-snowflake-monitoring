@@ -32,7 +32,7 @@ query_history as (
 
 cost_per_query as (
     select *
-    from {{ ref('cost_per_query') }}
+    from {{ ref('int_cost_per_query') }}
     {% if is_incremental() %}
         -- Conservatively re-process the last 3 days to account for late arriving rates data. Allow an override from project variable
         -- which changes the cost per query

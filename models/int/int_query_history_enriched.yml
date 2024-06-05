@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: query_history_enriched
+  - name: int_query_history_enriched
     description: An enriched version of the query_history model. Contains 1 row per query (query_id).
     columns:
       - name: query_id

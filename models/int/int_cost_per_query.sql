@@ -100,7 +100,7 @@ query_cost as (
     inner join credits_billed_hourly
         on query_seconds_per_hour.warehouse_id = credits_billed_hourly.warehouse_id
             and query_seconds_per_hour.hour = credits_billed_hourly.hour
-    inner join {{ ref('daily_rates') }} as daily_rates
+    inner join {{ ref('int_daily_rates') }} as daily_rates
         on date(query_seconds_per_hour.start_time) = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'compute'
@@ -186,11 +186,11 @@ select
 from all_queries
 inner join credits_billed_daily
     on date(all_queries.start_time) = credits_billed_daily.date
-left join {{ ref('daily_rates') }} as daily_rates
+left join {{ ref('int_daily_rates') }} as daily_rates
     on date(all_queries.start_time) = daily_rates.date
         and daily_rates.service_type = 'COMPUTE'
         and daily_rates.usage_type = 'cloud services'
-inner join {{ ref('daily_rates') }} as current_rates
+inner join {{ ref('int_daily_rates') }} as current_rates
     on current_rates.is_latest_rate
         and current_rates.service_type = 'COMPUTE'
         and current_rates.usage_type = 'cloud services'

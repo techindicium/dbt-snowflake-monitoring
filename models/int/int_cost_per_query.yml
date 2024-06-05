@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: cost_per_query
+  - name: int_cost_per_query
     description: A model to help you identify expensive Snowflake queries. It includes 1 row per query, along with the estimated query cost.
     columns:
       - name: query_id
