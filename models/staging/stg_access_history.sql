@@ -2,9 +2,9 @@
 
 select
     --CAST(query_id AS VARCHAR) AS query_id,
-    to_varchar(query_id) as query_id,
-    CAST(query_start_time AS DATETIME) AS query_start_time,
-    CAST(user_name AS VARCHAR) AS user_name,
+    to_varchar(query_id) as query_id
+    , CAST(query_start_time AS DATETIME) AS query_start_time
+    , CAST(user_name AS VARCHAR) AS user_name,
     --direct_objects_accessed,
     --base_objects_accessed,
    -- objects_modified

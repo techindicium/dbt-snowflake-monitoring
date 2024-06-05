@@ -2,17 +2,17 @@
 {{ config(materialized='table') }}
 
 select
-    date,
-    organization_name,
-    contract_number,
-    account_name,
-    account_locator,
-    region,
-    service_level,
-    usage_type,
-    currency,
-    effective_rate,
-    case
+    date
+    , organization_name
+    , contract_number
+    , account_name
+    , account_locator
+    , region
+    , service_level
+    , usage_type
+    , currency
+    , effective_rate
+    , case
         -- For most Snowflake accounts, the service_type field is always COMPUTE or STORAGE
         -- Have recently seen new values introduced for one account: WAREHOUSE_METERING and CLOUD_SERVICES
         -- For now, we'll force these to either be COMPUTE or STORAGE since that's what the downstream models expect

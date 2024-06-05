@@ -2,13 +2,13 @@
 {{ config(materialized='table') }}
 
 select
-    date,
-    organization_name,
-    contract_number,
-    currency,
-    free_usage_balance,
-    capacity_balance,
-    on_demand_consumption_balance,
-    rollover_balance
+    date
+    , organization_name
+    , contract_number
+    , currency
+    , free_usage_balance
+    , capacity_balance
+    , on_demand_consumption_balance
+    , rollover_balance
 from {{ source('snowflake_organization', 'remaining_balance_daily') }}
 order by date
