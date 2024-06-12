@@ -10,6 +10,8 @@ models:
         description: The date and end of the hour (in the UTC time zone) in which the warehouse usage took place.
       - name: warehouse_id
         description: Internal/system-generated identifier for the warehouse.
+        tests:
+          - not_null
       - name: warehouse_name
         description: Name of the warehouse.
       - name: credits_used

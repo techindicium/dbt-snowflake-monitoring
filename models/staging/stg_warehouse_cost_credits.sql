@@ -26,16 +26,16 @@ with current_rates as (
 )
 
 select
-    wm.start_time,
-    wm.end_time,
-    wm.account_name,
-    wm.warehouse_id,
-    wm.warehouse_name,
-    wm.credits_used,
-    wm.credits_used_compute,
-    wm.credits_used_cloud_services,
-    wm.credits_used_compute * dr.effective_rate as compute_cost,
-    wm.credits_used_compute * dr.effective_rate + 
+    wm.start_time
+    , wm.end_time
+    , wm.account_name
+    , wm.warehouse_id
+    , wm.warehouse_name
+    , wm.credits_used
+    , wm.credits_used_compute
+    , wm.credits_used_cloud_services
+    , wm.credits_used_compute * dr.effective_rate as compute_cost
+    , wm.credits_used_compute * dr.effective_rate + 
     (div0(wm.credits_used_cloud_services, cbd.daily_credits_used_cloud_services) * cbd.daily_billable_cloud_services) * coalesce(dr.effective_rate, cr.effective_rate) as query_cost
 from {{ source('snowflake_organization_usage', 'warehouse_metering_history') }} wm
 left join daily_rates dr
@@ -44,10 +44,10 @@ left join current_rates cr
     on cr.is_latest_rate
 left join (
     select
-        date(start_time) as date,
-        sum(credits_used_compute) as daily_credits_used_compute,
-        sum(credits_used_cloud_services) as daily_credits_used_cloud_services,
-        greatest(sum(credits_used_cloud_services) - sum(credits_used_compute) * 0.1, 0) as daily_billable_cloud_services
+        date(start_time) as date
+        , sum(credits_used_compute) as daily_credits_used_compute
+        , sum(credits_used_cloud_services) as daily_credits_used_cloud_services
+        , greatest(sum(credits_used_cloud_services) - sum(credits_used_compute) * 0.1, 0) as daily_billable_cloud_services
     from {{ source('snowflake_organization_usage', 'warehouse_metering_history') }}
     group by date(start_time)
 ) cbd
@@ -56,3 +56,7 @@ left join (
     where wm.end_time > (select coalesce(dateadd(day, -7, max(end_time)), '1970-01-01') from {{ this }})
 {% endif %}
 order by wm.start_time
+
+-- tem usuario que não corresponde a um determinado warehouse id que não está disponivel na stg_waregouse_cost_credits
+-- unir as informações disponiveis na tabela raw query history onde se encontramm o restante dos warehouse_id com a warehouse metering story
+

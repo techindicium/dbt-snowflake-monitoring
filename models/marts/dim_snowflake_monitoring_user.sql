@@ -23,3 +23,6 @@ SELECT
     warehouse_id
 FROM dim_user_sk
 WHERE unique_id = 1 -- Garante uma única linha por usuário
+
+-- tem usuario que não corresponde a um determinado warehouse id que não está disponivel na stg_waregouse_cost_credits
+-- unir as informações disponiveis na tabela raw query history onde se encontramm o restante dos warehouse_id com a warehouse metering story

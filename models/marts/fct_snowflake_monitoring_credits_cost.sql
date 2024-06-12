@@ -26,7 +26,7 @@ WITH
 
     , query_history_enriched as (
         select *
-        from {{ref('int_query_history_enriched')}}
+        from {{ref('stg_query_history')}}
     )
 
     , fact_table AS (
