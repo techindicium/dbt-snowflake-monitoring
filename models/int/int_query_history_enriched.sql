@@ -19,7 +19,7 @@ query_history as (
         case
             when _dbt_json_comment_meta is not null or _dbt_json_query_tag_meta is not null then
                 {{ adapter.quote_as_configured(this.database, 'database') }}.{{ adapter.quote_as_configured(this.schema, 'schema') }}.merge_objects(coalesce(_dbt_json_comment_meta, { }), coalesce(_dbt_json_query_tag_meta, { }))
-        end as dbt_metadata
+        end as dbt_metadata_temp
 
     from {{ ref('stg_query_history') }}
 
@@ -54,7 +54,6 @@ select
 
     -- Grab all columns from query_history (except the query time columns which we rename below)
     -- adicionei aqui o dbt_node_id
-    , query_history.dbt_metadata['node_id']::string as dbt_node_id
     , query_history.query_text
     , query_history.database_id
     , query_history.database_name
@@ -132,8 +131,8 @@ select
     ,query_history.bytes_spilled_to_local_storage / power(1024, 3) as data_spilled_to_local_storage_gb
     ,query_history.bytes_spilled_to_remote_storage / power(1024, 3) as data_spilled_to_remote_storage_gb
     ,query_history.bytes_sent_over_the_network / power(1024, 3) as data_sent_over_the_network_gb
-    ,query_history.query_text_no_comments
-    ,query_history.dbt_metadata
+    -- ,query_history.query_text_no_comments
+    ,query_history.dbt_metadata_temp['node_id']::string as dbt_node_id
 
     , query_history.total_elapsed_time / 1000 as total_elapsed_time_s
     , query_history.compilation_time / 1000 as compilation_time_s

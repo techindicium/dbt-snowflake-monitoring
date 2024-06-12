@@ -68,6 +68,19 @@ select
     , query_hash_version
     , query_parameterized_hash
     , query_parameterized_hash_version
+    -- ,
+
+    --     -- this removes comments enclosed by /* <comment text> */ and single line comments starting with -- and either ending with a new line or end of string
+    --     regexp_replace(query_text, $$(\/\*(.|\n|\r)*?\*\/)|(--.*$)|(--.*(\n|\r))|;$$, '') as query_text_no_comments,
+    --     try_parse_json(regexp_substr(query_text, $$\/\*\s*({(.|\n|\r)*"app":\s"dbt"(.|\n|\r)*})\s*\*\/$$, 1, 1, 'ie')) as _dbt_json_comment_meta
+    --     , case
+    --         when try_parse_json(query_tag)['dbt_snowflake_query_tags_version'] is not null then try_parse_json(query_tag)
+    --     end as _dbt_json_query_tag_meta,
+    --     case
+    --         when _dbt_json_comment_meta is not null or _dbt_json_query_tag_meta is not null then
+    --             {{ adapter.quote_as_configured(this.database, 'database') }}.{{ adapter.quote_as_configured(this.schema, 'schema') }}.merge_objects(coalesce(_dbt_json_comment_meta, { }), coalesce(_dbt_json_query_tag_meta, { }))
+    --     end as dbt_metadata
+    -- ,dbt_metadata['node_id']::string as dbt_node_id    
 from {{ source('snowflake_account_usage', 'query_history') }}
 
 {% if is_incremental() %}

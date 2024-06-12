@@ -10,5 +10,5 @@ select
     , capacity_balance
     , on_demand_consumption_balance
     , rollover_balance
-from {{ source('snowflake_organization', 'remaining_balance_daily') }}
+from {{ source('snowflake_organization_usage', 'remaining_balance_daily') }}
 order by date

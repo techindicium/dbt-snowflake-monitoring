@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: stg_database_storage_usage_history
+    description: An incrementally materialized copy of the snowflake.organization_usage.
+    columns:
+      - name: database_id
+        description: Internal/system-generated identifier for the SQL statement.
+      - name: database_name
+        description: Database that was in use at the time of the query.
+      - name: account_name
+        description: name of account in the snowflake
