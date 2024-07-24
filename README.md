@@ -6,9 +6,9 @@ From the [SELECT](https://select.dev) team, a dbt package to help you monitor Sn
 
 Pay attention, it is very important to know if your modification to this repository is a release (breaking changes), a feature (functionalities) or a patch(to fix bugs). With that information, create your branch name like this:
 
-- `release/<branch-name>`
-- `feature/<branch-name>`
-- `patch/<branch-name>`
+- `release/<branch-name>` or `major/<branch-name>` or `Release/<branch-name>` or `Major/<branch-name>`
+- `feature/<branch-name>` or `minor/<branch-name>` with capitalised letters work as well
+- `patch/<branch-name>` or `fix/<branch-name>` or `hotfix/<branch-name>` with capitalised letters work as well
 
 ## Documentation
 
